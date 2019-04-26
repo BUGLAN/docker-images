@@ -1,0 +1,45 @@
+version: "2"
+services:
+  kong-database:
+    image: postgres:9.5
+    environment:
+      - POSTGRES_USER=kong
+      - POSTGRES_DB=kong
+    ports:
+      - "5432:5432"
+    volumes:
+      - /var/lib/postgresql/data:/var/lib/postgresql/data
+    networks:
+      default:
+        aliases:
+        - kong-database
+  kong:
+    build : .
+    environment:
+      - KONG_DATABASE=postgres
+      - KONG_PG_HOST=kong-database
+      - KONG_CASSANDRA_CONTACT_POINTS=kong-database
+      - KONG_PROXY_ACCESS_LOG=/dev/stdout
+      - KONG_ADMIN_ACCESS_LOG=/dev/stdout
+      - KONG_PROXY_ERROR_LOG=/dev/stderr
+      - KONG_ADMIN_ERROR_LOG=/dev/stderr
+    command : kong docker-start
+    ports:
+      - "8000:8000"
+      - "8443:8443"
+      - "8001:8001"
+      - "8444:8444"
+    depends_on:
+    - kong-database
+    networks:
+      default:
+        aliases:
+        - kong
+  kong-dashboard:
+    image: pgbi/kong-dashboard:v2
+    ports:
+      - "8080:8080"
+    links:
+      - kong
+    depends_on:
+      - kong
