@@ -8,8 +8,8 @@ services:
       - MYSQL_ROOT_PASSWORD=root
     volumes:
     - ./data:/var/lib/mysql
-    networks:
-      - tor
 
 networks:
-  tor:
+  default:
+    external:
+      name: tor
