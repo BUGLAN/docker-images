@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - 8082:80
+    environment:
+      - PMA_HOST=mysql.qing-long.club
