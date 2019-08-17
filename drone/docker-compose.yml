@@ -20,19 +20,17 @@ services:
       - DRONE_RPC_SECRET=secretkey
       - DRONE_USER_CREATE=username:BUGLAN,admin:true
       - DRONE_USER_FILTER=qing-long
-      # - DRONE_REPOSITORY_FILTER=qing-long,BUGLAN,SeluneXscd
-      # - DRONE_DATABASE_DRIVER=mysql
-      # - DRONE_DATABASE_DATASOURCE=root:root@tcp(176.122.132.132:3306)/drone?parseTime=true
-
-      #  drone-agent:
-      #      image: drone/agent:1
-      #      restart: always
-      #      depends_on:
-      #        - drone-server
-      #      volumes:
-      #        - /var/run/docker.sock:/var/run/docker.sock
-      #      environment:
-      #        - DRONE_PRC_SERVER=http://buglan.org
-      #        - DRONE_SECRET=secretkey
-      #        - DRONE_RUNNER_CAPACITY=2
-      #        - DRONE_LOGS_DEBUG=true
+      # - DRONE_SECRET_SECRET=558f3eacbfd5928157cbfe34823ab921
+      # - DRONE_SECRET_ENDPOINT=http://0.0.0.0:3000
+      - DRONE_DATABASE_DRIVER=mysql
+      - DRONE_DATABASE_DATASOURCE=root:root@tcp(0.0.0.0:3306)/drone?parseTime=true
+  mysql5.7:
+    image: mysql:5.7
+    ports:
+      - 3306:3306
+    volumes:
+      - ./mysql-data:/var/lib/mysql
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=drone
