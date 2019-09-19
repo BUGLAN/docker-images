@@ -1,0 +1,31 @@
+cluster.name: weffect
+node.name: es-01
+node.master: true
+node.data: true
+# network.host: 0.0.0.0
+# network.publish_host: 0.0.0.0
+#discovery.zen.ping.unicast.hosts: ["192.168.5.44","192.168.5.45","192.168.5.46"]
+discovery.zen.minimum_master_nodes: 1
+
+xpack.security.enabled: false
+xpack.monitoring.enabled: false
+xpack.security.audit.enabled: false
+xpack.security.authc.accept_default_password: false
+
+http.cors.enabled: true
+http.cors.allow-origin: "*"
+script.engine.groovy.inline.search: true
+
+# the number of CPUs + 1
+thread_pool.index.size: 5
+thread_pool.index.queue_size: 20480
+#
+thread_pool.search.size: 5
+# thread_pool.search.queue_size: 20480
+#
+thread_pool.get.size: 5
+thread_pool.get.queue_size: 20480
+#
+# # the number of CPUs + 1
+thread_pool.bulk.size: 5
+thread_pool.bulk.queue_size: 20480
