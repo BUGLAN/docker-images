@@ -19,4 +19,14 @@ docker run -d -p 8118:8118 -p 9050:9050 rdsubhas/tor-privoxy-alpine
 
 ```bash
 docker run -d --name mysql -p 127.0.0.1:3306:3306 -v ~/.mysql/date:/var/lib/mysql -e MYSQL_ROOT_PASSWORD="root" mysql:5.7
+
+cd mysql5.7
+docker-compose up -d
+```
+
+- redis
+
+```bash
+cd redis
+docker-compose up -d
 ```
