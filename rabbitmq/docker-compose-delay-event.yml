@@ -3,6 +3,7 @@ version: '3.3'
 services:
   rabbit-delay-event:
     image: heidiks/rabbitmq-delayed-message-exchange:latest
+    restart: always
     environment:
       - RABBITMQ_DEFAULT_USER=guest
       - RABBITMQ_DEFAULT_PASS=guest
