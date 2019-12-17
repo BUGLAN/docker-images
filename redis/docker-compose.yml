@@ -1,6 +1,6 @@
 version: '3'
 services:
-  mysql:
+  redis:
     image: redis
     restart: always
     ports:
