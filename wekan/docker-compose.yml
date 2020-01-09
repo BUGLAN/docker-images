@@ -1,0 +1,21 @@
+version: '2'
+services:
+  db:
+    container_name: wekan-db
+    image: mongo
+    restart: always
+    volumes:
+      - ~/data/wekan:/data/db
+  app:
+    container_name: wekan-app
+    image: mquandalle/wekan:0.10.0
+    restart: always
+    ports:
+      - "8090:80"
+    links:
+      - db
+    depends_on:
+      - db
+    environment:
+      - MONGO_URL=mongodb://db
+      - ROOT_URL=http://localhost
