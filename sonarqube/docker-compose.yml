@@ -4,7 +4,7 @@ services:
   postgres:
     image: postgres
     networks:
-      - gatling_network
+      - sonar_net
     environment:
       - SONARQUBE_JDBC_URL=jdbc:postgresql://db:5432/sonarqube
       - POSTGRES_USER=sonar
@@ -14,7 +14,7 @@ services:
     ports:
       - "9000:9000"
     networks:
-      - gatling_network
+      - sonar_net
     environment:
       - SONARQUBE_JDBC_USERNAME=sonar
       - SONARQUBE_JDBC_PASSWORD=sonar
@@ -26,4 +26,5 @@ services:
 
 
 networks:
-  gatling_network:
+  sonar_net:
+
