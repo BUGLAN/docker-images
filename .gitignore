@@ -42,3 +42,13 @@ storage
 
 # mysql file
 data
+
+
+# sonarqube
+sonarqube_conf
+sonarqube_data
+sonarqube_extensions
+
+# etcd-browser
+etcd-browser
+default.etcd
