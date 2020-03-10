@@ -1,0 +1,23 @@
+version: '3'
+services:
+  elasticsearch-cluster:
+    image: registry.forchange.cn/public/base-elasticsearch:7.3.1
+    ports:
+      - 9201:9201
+      - 9301:9301
+    working_dir: /usr/share/elasticsearch
+    volumes:
+      - ~/es731/certs:/certs
+      - ~/es731/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+      - /data/es731/data:/usr/share/elasticsearch/data
+    command: >
+      bash -c '
+        yum install -y -q -e 0 unzip;
+        if [[ ! -f /certs/bundle.zip ]]; then
+        bin/elasticsearch-certutil cert --silent --out /certs/bundle.zip --pass password;
+        unzip /certs/bundle.zip -d /certs;
+        fi;
+        chown -R 1000:0 /certs
+      '
+    environment:
+      - ELASTIC_PASSWORD=password

@@ -1,0 +1,37 @@
+version: '2.0'
+services:
+  es5.6:
+    image: registry.forchange.cn/public/es-with-xpack:5.6.16
+    container_name: es5.6
+    environment:
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - http.cors.enabled=true
+      - http.cors.allow-origin=*
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - ./data:/usr/share/elasticsearch/data
+      - ./elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+    ports:
+      - 9200:9200
+      - 9300:9300
+    # networks:
+      # - esnet
+
+  # kibana:
+    # image: registry.forchange.cn/public/kibana-with-xpack:5.6.16
+    # container_name: kibana
+    # environment:
+      # SERVER_NAME: localhost
+      # ELASTICSEARCH_HOSTS: http://es5.6:9200
+      # ELASTICSEARCH_URL: http://es5.6:9200
+      # ELASTICSEARCH_USERNAME: elastic
+      # ELASTICSEARCH_PASSWORD: changeme
+    # ports:
+      # - 5601:5601
+    # networks:
+      # - share_net
+# networks:
+  # share_net:
