@@ -10,7 +10,7 @@ services:
       - POSTGRES_USER=sonar
       - POSTGRES_PASSWORD=sonar
   sonarqube:
-    image: sonarqube
+    image: sonarqube:8.2-community
     ports:
       - "9000:9000"
     networks:
