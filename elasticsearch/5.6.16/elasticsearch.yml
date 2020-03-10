@@ -1,0 +1,28 @@
+cluster.name: weffect
+node.name: es-01
+node.master: true
+node.data: true
+network.host: 0.0.0.0
+network.publish_host: 0.0.0.0
+transport.tcp.port: 9300
+
+xpack.security.enabled: false
+xpack.security.transport.ssl.enabled: false
+
+
+http.cors.enabled: true
+http.cors.allow-origin: "*"
+
+# the number of CPUs + 1
+thread_pool.index.size: 3
+thread_pool.index.queue_size: 20480
+#
+thread_pool.search.size: 3
+# thread_pool.search.queue_size: 20480
+#
+thread_pool.get.size: 3
+thread_pool.get.queue_size: 20480
+#
+# # the number of CPUs + 1
+thread_pool.bulk.size: 3
+thread_pool.bulk.queue_size: 20480
