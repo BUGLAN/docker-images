@@ -52,3 +52,4 @@ sonarqube_extensions
 # etcd-browser
 etcd-browser
 default.etcd
+datalog
