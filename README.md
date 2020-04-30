@@ -1,32 +1,25 @@
-# talk is cheap, show me the code
+# docker-images
 
-- [nginx](nginx/Dockerfile): nginx dockerfile
+> my dockerfile and docker-compose
 
-- [tor]: docker run tor image
+## lists
 
-dockerfile:
-```bash
+* mysql5.7
+* drone
+* elasticsearch
+* kong
+* mongo
+* nginx
+* phpmyadmin
+* rabbitmq
+* redis
+* sonarqube
+* wekan
+* zookeeper
 
-```
-
-
-run:
-```bash
-docker run -d -p 8118:8118 -p 9050:9050 rdsubhas/tor-privoxy-alpine
-```
-
-- [mysql 5.7]: docker run mysql 5.7
-
-```bash
-docker run -d --name mysql -p 127.0.0.1:3306:3306 -v ~/.mysql/date:/var/lib/mysql -e MYSQL_ROOT_PASSWORD="root" mysql:5.7
-
-cd mysql5.7
-docker-compose up -d
-```
-
-- redis
+## how to start
 
 ```bash
-cd redis
-docker-compose up -d
+cd {project}
+docker-compose up
 ```

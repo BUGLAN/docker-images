@@ -53,3 +53,5 @@ sonarqube_extensions
 etcd-browser
 default.etcd
 datalog
+.scannerwork
+*.sql
