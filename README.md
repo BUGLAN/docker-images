@@ -16,6 +16,7 @@
 * sonarqube
 * wekan
 * zookeeper
+* golangci-lint with sonar-scanner (only dockerfile)
 
 ## how to start
 
