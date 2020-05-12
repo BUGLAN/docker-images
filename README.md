@@ -16,6 +16,7 @@
 * sonarqube
 * wekan
 * zookeeper
+* jaeger
 
 ## how to start
 
