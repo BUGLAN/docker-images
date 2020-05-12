@@ -16,6 +16,10 @@
 * sonarqube
 * wekan
 * zookeeper
+* golangci-lint with sonar-scanner (only dockerfile)
+* prometheus
+* grafana
+* protainer
 * jaeger
 
 ## how to start

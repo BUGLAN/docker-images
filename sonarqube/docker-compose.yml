@@ -12,8 +12,9 @@ services:
       - POSTGRES_PASSWORD=sonar
   sonarqube:
     image: sonarqube:8.2-community
+    restart: always
     ports:
-      - "9000:9000"
+      - "9001:9000"
     networks:
       - sonar_net
     environment:
