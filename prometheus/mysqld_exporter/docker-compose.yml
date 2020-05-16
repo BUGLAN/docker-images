@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./promdata:/data
+    ports:
+      - 9090:9090
+      
+  mysql_export:
+    image: prom/mysqld-exporter
+    container_name: mysqld-exporter
+    environment:
+      - DATA_SOURCE_NAME=root:root@tcp(192.168.1.106:3306)/
+    ports:
+      - 9104:9104
+
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    volumes:
+      - ./grafana_data:/var/lib/grafana
+    ports:
+      - 3000:3000
+

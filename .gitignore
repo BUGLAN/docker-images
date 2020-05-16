@@ -55,3 +55,8 @@ default.etcd
 datalog
 .scannerwork
 *.sql
+
+# grafana
+grafana_data/
+grafana-dashboards/
+promdata/
