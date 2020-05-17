@@ -60,3 +60,7 @@ datalog
 grafana_data/
 grafana-dashboards/
 promdata/
+
+#gitlab
+config
+logs
