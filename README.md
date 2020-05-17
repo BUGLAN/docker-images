@@ -21,6 +21,7 @@
 * grafana
 * protainer
 * jaeger
+* gitlab-ce
 
 ## how to start
 
