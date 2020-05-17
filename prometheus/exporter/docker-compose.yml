@@ -15,7 +15,7 @@ services:
     image: prom/mysqld-exporter
     container_name: mysqld-exporter
     environment:
-      - DATA_SOURCE_NAME=root:root@tcp(192.168.1.106:3306)/
+      - DATA_SOURCE_NAME=root:root@tcp(192.168.1.108:3306)/
     ports:
       - 9104:9104
 
