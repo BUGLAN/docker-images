@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  etcd:
+    image: bitnami/etcd
+    restart: always
+    container_name: etcd
+    environment: 
+      - ALLOW_NONE_AUTHENTICATION=yes
+    ports:
+      - 2379:2379
+      - 2380:2380
+  # etcd-manage:
+  #   image: "shiguanghuxian/etcd-manage"
+  #   volumes:
+  #     - ./cfg.toml:/app/config/cfg.toml
+  #     - ./logs:/app/logs
+  #   ports:
+  #     - 10280:10280
+  #   depends_on:
+  #     - etcd
