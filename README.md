@@ -22,6 +22,8 @@
 * protainer
 * jaeger
 * gitlab-ce
+* gitea
+
 
 ## how to start
 

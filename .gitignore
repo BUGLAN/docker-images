@@ -64,3 +64,5 @@ promdata/
 #gitlab
 config
 logs
+
+db
