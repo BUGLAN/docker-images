@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  elasticsearch:
+    image: elasticsearch:7.3.1
+    restart: always
+    container_name: elasticsearch
+    environment: 
+      - discovery.type=single-node
+      - bootstrap.memory_lock=true
+      - 'ES_JAVA_OPTS=-Xms512m -Xmx512m'
+      # - http.port=9200
+      # - http.cors.enabled=true
+      # - http.cors.allow-origin=http://localhost:1358,http://127.0.0.1:1358
+      # - http.cors.allow-headers=X-Requested-With,X-Auth-Token,Content-Type,Content-Length,Authorization
+      # - http.cors.allow-credentials=true
+    volumes: 
+      - ./data:/usr/share/elasticsearch/data
+    ports:
+      - 9200:9200
+      - 9300:9300
+
+  # dejavu:
+  #   image: appbaseio/dejavu:latest
+  #   restart: always
+  #   container_name: dejavu
+  #   depends_on: 
+  #     - elasticsearch
+  #   ports: 
+  #     - 1358:1358
+   
