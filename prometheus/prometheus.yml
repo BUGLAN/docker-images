@@ -14,3 +14,10 @@ scrape_configs:
     scheme: http
     static_configs:
       - targets: ['host.docker.internal:8080']
+
+  - job_name: 'node_exporter'
+    scrape_interval: 8s
+    scrape_timeout: 8s
+    scheme: http
+    static_configs:
+      - targets: ['host.docker.internal:9100']
