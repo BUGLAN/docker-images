@@ -9,3 +9,4 @@ services:
       - MYSQL_ROOT_PASSWORD=root
     volumes:
     - ./data:/var/lib/mysql
+    - ./mysqld.cnf:/etc/mysql/mysql.conf.d/mysqld.cnf
