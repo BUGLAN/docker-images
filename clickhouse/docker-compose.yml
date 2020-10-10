@@ -1,0 +1,16 @@
+version: "3"
+services:
+  server:
+    image: yandex/clickhouse-server
+    ports:
+      - 8123:8123
+      - 9000:9000
+      - 9009:9009
+    environment:
+      - USER=root
+      - PASSWORD=root
+    volumes:
+      - ./data:/var/lib/clickhouse
+    # client:
+    #   image: yandex/clickhouse-client
+    #   command: ['--host', 'server']
