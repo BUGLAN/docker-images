@@ -22,6 +22,7 @@ services:
       - 9300:9300
   kibana:
     image: kibana:7.3.1
+    restart: always
     ports:
       - 5601:5601
 
