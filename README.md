@@ -23,6 +23,7 @@
 * jaeger
 * gitlab-ce
 * gitea
+* certbot
 
 
 ## how to start
